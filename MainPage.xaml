@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zt="clr-namespace:BusyIssue;assembly=BusyIssue"
+             x:Class="BusyIssue.MainPage">
+    <ContentPage.BindingContext>
+        <zt:MainPageViewModel></zt:MainPageViewModel>
+    </ContentPage.BindingContext>
+    <Grid>
+        <zt:ZtLoading x:Name="Loading"
+                      IsBusy="{Binding IsBusy, Mode=OneWay}" 
+                      Message="{Binding LoadingMessage, Mode=OneWay}">
+        </zt:ZtLoading>
+
+
+        <Button x:Name="Stop" Text="Click for ZtLoading" Clicked="Stop_Clicked"/>
+
+    </Grid>
+
+
+</ContentPage>
