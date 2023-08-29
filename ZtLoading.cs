@@ -13,7 +13,7 @@ public class ZtLoading : RadBusyIndicator
     {
         _busyMessage.FontAttributes = FontAttributes.Bold;
         IsBusy = false;
-        IsVisible = false;
+        //IsVisible = false;
         _busyMessage.HorizontalOptions = LayoutOptions.Center;
         BusyContent = _busyMessage;
         ContentUnderOpacity = 0.4;
@@ -45,10 +45,10 @@ public class ZtLoading : RadBusyIndicator
 
     protected override void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
-        if (propertyName == nameof(IsBusy))
-        {
-            IsVisible = IsBusy;
-        }
+        //if (propertyName == nameof(IsBusy))
+        //{
+        //    IsVisible = IsBusy;
+        //}
 
         base.OnPropertyChanged(propertyName);
     }

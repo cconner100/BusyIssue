@@ -2,19 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:zt="clr-namespace:BusyIssue;assembly=BusyIssue"
+             xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
              x:Class="BusyIssue.MainPage">
     <ContentPage.BindingContext>
         <zt:MainPageViewModel></zt:MainPageViewModel>
     </ContentPage.BindingContext>
     <Grid>
         <zt:ZtLoading x:Name="Loading"
-                      IsBusy="{Binding IsBusy, Mode=OneWay}" 
+                      IsBusy="{Binding IsBusy, Mode=OneWay}"
                       Message="{Binding LoadingMessage, Mode=OneWay}">
+            <telerik:RadBusyIndicator.Content>
+                <Button x:Name="Stop" Text="Click for ZtLoading" Clicked="Stop_Clicked"/>
+            </telerik:RadBusyIndicator.Content>
         </zt:ZtLoading>
-
-
-        <Button x:Name="Stop" Text="Click for ZtLoading" Clicked="Stop_Clicked"/>
-
     </Grid>
 
 

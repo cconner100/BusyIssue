@@ -16,18 +16,24 @@ public partial class MainPage : ContentPage
         }
     }
 
-    
+    int click = 0;
+
     void Stop_Clicked(object sender, EventArgs e)
     {
-        if(vm.IsBusy == false)
-        {
-            vm.IsBusy = true;      
-        }
-        else
-        {
-            vm.IsBusy = false;
-        }
-
+        click++;
+        vm.LoadingMessage = "Loading " + click;
+        vm.IsBusy = true;
+        Task.Run(UpdateBusy);
     }
+
+    void UpdateBusy()
+    {
+        MainThread.BeginInvokeOnMainThread(async () =>
+        {
+            await Task.Delay(2000);
+            vm.IsBusy = false;
+        });
+    }
+
 }
 
